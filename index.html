@@ -1,0 +1,35 @@
+<html>
+<header>
+    <title>Pepito</title>
+    <script>
+        var x = 0;
+        function abaixa() {
+            var el = document.getElementById("nao");
+            x++;
+            if(x==4) {
+                x=0;
+            }
+            
+            el.style.marginTop = (x * 50)+"px";
+        }
+
+        function toca() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
+</header>
+
+<body bgcolor="blue">
+    <div style="width: 100%; text-align: center;">
+        <div><img src="ohgente.png"></div>
+        <div style="color: white"><h2>MOLHUDO HOJE?</h2></div>
+        <div style="margin-top: 25px;"><button onclick="toca()" id="sim" style="font-size: large; font-style: bold ;width: 200px; height: 50px; background-color: green; color: white;">SIM</button></div>
+        <div style="margin-top: 25px;"><button onclick="abaixa()" id="nao" style="font-size: large; font-style: bold ;width: 200px; height: 50px; background-color: red; color: white;">NÃO</button></div>
+        <audio id="audio">
+            <source src="pepito.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</body>
+
+</html>
