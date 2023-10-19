@@ -1,5 +1,36 @@
-<html>
-<header>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões Sim e Não</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .botao {
+            display: block; /* Faz com que os botões ocupem a largura total da tela */
+            width: 100%; /* Ajusta a largura dos botões para a largura total do container */
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin-top: 10px;
+        }
+        .botao-sim {
+            background-color: green;
+        }
+        .botao-nao {
+            background-color: red;
+        }
+        .imagem {
+            height: 50%;
+            object-fit: cover; /* Faz com que a imagem seja cortada para caber na caixa */
+        }
+    </style>
     <title>Pepito</title>
     <script>
         var x = 0;
@@ -9,8 +40,7 @@
             if(x==4) {
                 x=0;
             }
-            
-            el.style.marginTop = (x * 50)+"px";
+            el.style.marginTop = 10 + (x * (el.offsetHeight+10))+"px";
         }
 
         function toca() {
@@ -18,18 +48,20 @@
             audio.play();
         }
     </script>
-</header>
-
+</head>
 <body bgcolor="blue">
-    <div style="width: 100%; text-align: center;">
-        <div><img src="ohgente.png" style="width:30%"></div>
-        <div style="color: white"><h2>MOLHUDO HOJE?</h2></div>
-        <div style="margin-top: 25px;"><button onclick="toca()" id="sim" style="font-size: large; font-style: bold ;width: 20%; height: 10%; background-color: green; color: white;">SIM</button></div>
-        <div style="margin-top: 25px;"><button onclick="abaixa()" id="nao" style="font-size: large; font-style: bold ;width: 20%; height: 10%; background-color: red; color: white;">NÃO</button></div>
+    <div class="container">
+        <!-- Imagem -->
+        <img src="ohgente.png" alt="Minha Imagem" class="imagem">
+
+        <h1 style="color: white;">MOLHUDO HOJE?</h1>
+        <!-- Botões -->
+        <button class="botao botao-sim" onclick="toca()" id="sim">SIM</button>
+        <button class="botao botao-nao" onclick="abaixa()" id="nao">NÃO</button>
+
         <audio id="audio">
             <source src="pepito.mp3" type="audio/mp3">
         </audio>
     </div>
 </body>
-
 </html>
