@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.botao {
+    width: 20%; /* Ajusta a largura dos botões para a largura total do container */
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    transition: .3s;
+}
+.botao-sim {
+    background-color: green;
+}
+.botao-nao {
+    background-color: red;
+}
+.imagem {
+    height: 50%;
+    object-fit: cover; /* Faz com que a imagem seja cortada para caber na caixa */
+}
