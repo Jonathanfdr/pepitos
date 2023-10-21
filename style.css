@@ -20,6 +20,13 @@
     margin-top: 10px;
     transition: .3s;
 }
+
+@media screen and (max-width: 768px) {
+    .botao {
+        width: 100%;
+    }
+}
+
 .botao-sim {
     background-color: green;
 }
