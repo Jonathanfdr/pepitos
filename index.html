@@ -5,46 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botões Sim e Não</title>
-    <style>
-        .container {
-            text-align: center;
-            margin-top: 50px;
-        }
-        .botao {
-            display: block; /* Faz com que os botões ocupem a largura total da tela */
-            width: 100%; /* Ajusta a largura dos botões para a largura total do container */
-            padding: 15px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            margin-top: 10px;
-        }
-        .botao-sim {
-            background-color: green;
-        }
-        .botao-nao {
-            background-color: red;
-        }
-        .imagem {
-            height: 50%;
-            object-fit: cover; /* Faz com que a imagem seja cortada para caber na caixa */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>Pepito</title>
     <script>
-        var x = 0;
         function abaixa() {
-            var el = document.getElementById("nao");
-            x++;
-            if(x==4) {
-                x=0;
-            }
-            el.style.marginTop = 10 + (x * (el.offsetHeight+10))+"px";
+            let botão = document.getElementById("nao");
+            colocaMarginTop(botão);
+        }
+        
+        function colocaMarginTop(botão) {
+            const viewportWidth = window.innerWidth - botão.offsetWidth;
+            const viewportHeight = window.innerHeight - botão.offsetHeight;
+
+            const topo = Math.random() * viewportHeight + 40;
+            const esquerda = Math.random() * viewportWidth + 40;
+
+            botão.style.marginTop = `${topo}px`
+            botão.style.marginLeft = `${esquerda}px`;
         }
 
         function toca() {
-            var audio = document.getElementById("audio");
+            const audio = document.getElementById("audio");
             audio.play();
         }
     </script>
@@ -56,8 +37,10 @@
 
         <h1 style="color: white;">MOLHUDO HOJE?</h1>
         <!-- Botões -->
-        <button class="botao botao-sim" onclick="toca()" id="sim">SIM</button>
-        <button class="botao botao-nao" onclick="abaixa()" id="nao">NÃO</button>
+        <div class="botoes">
+            <button class="botao botao-sim" onclick="toca()" id="sim">SIM</button>
+            <button class="botao botao-nao" onmouseenter="abaixa()" id="nao">NÃO</button>
+        </div>
 
         <audio id="audio">
             <source src="pepito.mp3" type="audio/mp3">
